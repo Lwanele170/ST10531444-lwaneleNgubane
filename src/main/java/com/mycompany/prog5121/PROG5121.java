@@ -36,6 +36,17 @@ public class PROG5121 {
         String regex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$";
         return Pattern.matches(regex, password);
     }
+   public static boolean checkCellPhoneNumber(String number) {
+    return number != null && number.matches("^\\+27\\d{9}$");
+}
+    public static String registerUser(String username, String password) {
+
+    if (checkUserName(username) && checkPasswordComplexity(password)) {
+        return "Username and password successfully captured. User registered";
+    } else {
+        return "Username or password incorrect";
+    }
+}
 
     public static boolean loginUser(String username, String password,
                                   String storedUsername, String storedPassword) {
